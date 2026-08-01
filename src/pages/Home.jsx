@@ -56,9 +56,7 @@ export default function Home() {
     : restaurants;
 
   const sorted = [...filtered].sort((a, b) => {
-    if (sortBy === "rating") return (b.rating || 4.5) - (a.rating || 4.5);
-    if (sortBy === "delivery") return 45 - 30; // Placeholder
-    return 0;
+    return (b.rating || 4.5) - (a.rating || 4.5);
   });
 
   return (
@@ -125,16 +123,6 @@ export default function Home() {
               }`}
             >
               ⭐ Rating
-            </button>
-            <button
-              onClick={() => setSortBy("delivery")}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                sortBy === "delivery"
-                  ? "bg-orange-600 text-white shadow-lg shadow-orange-500/40"
-                  : "bg-slate-700/50 text-slate-300 hover:bg-slate-700 border border-slate-600"
-              }`}
-            >
-              🚚 Delivery Time
             </button>
           </div>
         </div>
